@@ -11,11 +11,11 @@ const REPORT_DATA = {
     location: "線上會議（SeaMeet）",
     participants: {
       awoo: [
-        { name: "蔡阿達（Ada Tsai）", role: "資深總監暨共同創辦人" },
+        { name: "蔡阿達（Ada Tsai）", role: "臨時工" },
         { name: "Angelline", role: "業務開發" }
       ],
       client: [
-        { name: "周峯玉", role: "天下雜誌" }
+        { name: "Fiona", role: "天下雜誌" }
       ]
     }
   },
@@ -39,27 +39,20 @@ const REPORT_DATA = {
     },
     {
       id: 3,
-      title: "合作模式與收費結構",
-      icon: "💰",
-      details: "以關鍵字為計價基礎，20 個關鍵字約 35,000 元/月，每個關鍵字延伸 3 個 Prompt（共約 60 個 Prompt）進行追蹤。服務包含：關鍵字分析與策略規劃、Prompt 延伸與追蹤、文章撰寫建議、頁面優化建議。未來大量合作時，可討論經銷價與量體折扣。",
-      insight: "收費邏輯延續 awoo 既有的 SEO 服務模式，客戶理解成本低；以客戶為單位的計價方式，天下可靈活轉嫁成本。"
-    },
-    {
-      id: 4,
       title: "合作流程設計",
       icon: "📋",
       details: "預期流程：客戶下單 → 天下提供 Brief（含主題、目標族群、溝通重點）→ awoo 分析關鍵字與制定 Prompt → 天下訪談客戶撰寫文章（融入關鍵字與 Prompt 策略）→ awoo 審閱 → 文章上線 → awoo 啟動追蹤。從確定合作到文章上線，預估約一個月工作時程。",
       insight: "雙方接觸節點精簡，實際工作時間不長，主要變數在客戶端的訪談排程。"
     },
     {
-      id: 5,
+      id: 4,
       title: "POC 試點規劃",
       icon: "🧪",
       details: "雙方同意先以一家客戶進行 POC 測試，選定少量關鍵字（約 5-20 個），追蹤期至少兩個月。天下具備高網域權重優勢，文章上線後被 AI 引用的機率較高，適合快速驗證成效。SEO/GEO 本質上需要時間累積信任度，理想追蹤期為半年，但先以階段性結案方式推進。",
       insight: "天下的媒體權重是天然優勢，配合精準的關鍵字策略，POC 成功機率相當樂觀。"
     },
     {
-      id: 6,
+      id: 5,
       title: "長期合作展望",
       icon: "🚀",
       details: "天下預期未來所有廣編都將轉為 AU 式（兼顧曝光與 AI 聲量），量體將顯著成長。雙方可探討經銷合作模式：天下取得經銷價，依量體靈活定價。此外，awoo 也可協助天下進行網站體質優化（SEO 基礎、Schema 佈建等），從底層提升整體 AI 友善度。",
@@ -70,8 +63,7 @@ const REPORT_DATA = {
   decisions: [
     { text: "合作以「關鍵字 + Prompt 延伸追蹤」為核心模式", priority: "high" },
     { text: "先以一家客戶進行 POC 小規模測試", priority: "high" },
-    { text: "收費基準：20 個關鍵字 / 35,000 元月，延伸 60 個 Prompt 追蹤", priority: "medium" },
-    { text: "確定合作（客戶簽約）後才啟動關鍵字與 Prompt 制定，避免白做工", priority: "medium" },
+{ text: "確定合作（客戶簽約）後才啟動關鍵字與 Prompt 制定，避免白做工", priority: "medium" },
     { text: "合作流程精簡化：天下提供標準化 Brief → awoo 分析回饋 → 融入文章 → 上線追蹤", priority: "medium" },
     { text: "追蹤期建議至少兩個月（階段性結案），理想狀態半年", priority: "medium" },
     { text: "已交換 LINE 聯絡方式，後續溝通走 LINE 加速", priority: "low" }
@@ -80,14 +72,7 @@ const REPORT_DATA = {
   actionItems: [
     {
       task: "盤點適合 POC 的客戶名單與廣編需求",
-      owner: "周峯玉（天下）",
-      timeline: "近期",
-      status: "待啟動",
-      category: "client"
-    },
-    {
-      task: "評估合作量體與數量，回饋合理收費區間",
-      owner: "周峯玉（天下）",
+      owner: "Fiona（天下）",
       timeline: "近期",
       status: "待啟動",
       category: "client"
@@ -143,7 +128,7 @@ const REPORT_DATA = {
 
   preparedBy: {
     name: "蔡阿達（Ada Tsai）",
-    title: "資深總監暨共同創辦人",
+    title: "臨時工",
     company: "awoo 阿物科技",
     email: "ada@awoo.com.tw"
   }

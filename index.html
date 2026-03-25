@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>會議摘要 — awoo x 天下雜誌 | 2026-03-24</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1a2332;
+  --accent: #e85d26;
+  --accent-light: #fff3ee;
+  --gray-50: #f8f9fa;
+  --gray-100: #f1f3f5;
+  --gray-200: #e2e8f0;
+  --gray-400: #94a3b8;
+  --gray-600: #64748b;
+  --gray-800: #1e293b;
+  --green: #22c55e;
+  --green-bg: #f0fdf4;
+  --blue: #3b82f6;
+  --blue-bg: #eff6ff;
+  --yellow: #f59e0b;
+  --yellow-bg: #fffbeb;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+  --radius: 8px;
+  --radius-lg: 12px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans TC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--gray-50);
+  color: var(--gray-800);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+/* ===== HEADER ===== */
+.report-header {
+  background: linear-gradient(135deg, var(--navy) 0%, #2d3a4a 100%);
+  color: var(--white);
+  padding: 40px 0 32px;
+  position: relative;
+}
+.report-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), #f59e0b, var(--accent));
+}
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  font-size: 0.85rem;
+  opacity: 0.8;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.header-brand .dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; }
+.report-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+.header-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+.header-meta-item { display: flex; align-items: center; gap: 6px; }
+.header-meta-item svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* ===== TOOLBAR ===== */
+.toolbar {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+.toolbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.toolbar-inner::-webkit-scrollbar { display: none; }
+.toolbar-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  border: 1px solid var(--gray-200);
+  border-radius: 20px;
+  background: var(--white);
+  color: var(--gray-600);
+  font-size: 0.8rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.toolbar-btn:hover { border-color: var(--accent); color: var(--accent); }
+.toolbar-btn.active { background: var(--accent); color: var(--white); border-color: var(--accent); }
+.toolbar-btn svg { width: 14px; height: 14px; }
+.toolbar-spacer { flex: 1; }
+
+/* ===== PARTICIPANTS ===== */
+.participants {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin: 24px 0;
+  box-shadow: var(--shadow-sm);
+}
+.participants h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gray-400); margin-bottom: 16px; }
+.participant-groups { display: flex; gap: 24px; flex-wrap: wrap; }
+.participant-group { flex: 1; min-width: 200px; }
+.participant-group-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent-light);
+}
+.participant-item { padding: 6px 0; }
+.participant-name { font-weight: 600; font-size: 0.95rem; }
+.participant-role { color: var(--gray-600); font-size: 0.8rem; }
+
+/* ===== SECTIONS ===== */
+.section { margin: 28px 0; }
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--gray-100);
+}
+.section-title .section-icon { font-size: 1.3rem; }
+.section-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: var(--white);
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* ===== SUMMARY CARD ===== */
+.summary-card {
+  background: linear-gradient(135deg, var(--accent-light) 0%, var(--white) 100%);
+  border: 1px solid #fde0d0;
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 24px;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ===== DISCUSSION CARDS ===== */
+.discussion-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s;
+}
+.discussion-card:hover { box-shadow: var(--shadow-md); }
+.discussion-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+}
+.discussion-header:hover { background: var(--gray-50); }
+.discussion-icon { font-size: 1.4rem; flex-shrink: 0; }
+.discussion-title { flex: 1; font-weight: 600; font-size: 0.95rem; }
+.discussion-chevron {
+  width: 20px; height: 20px;
+  color: var(--gray-400);
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+.discussion-card.open .discussion-chevron { transform: rotate(180deg); }
+.discussion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.discussion-body-inner {
+  padding: 0 20px 20px;
+  border-top: 1px solid var(--gray-100);
+}
+.discussion-body-inner p {
+  color: var(--gray-600);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin-top: 14px;
+}
+.discussion-insight {
+  background: var(--blue-bg);
+  border-left: 3px solid var(--blue);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 12px 16px;
+  margin-top: 14px;
+  font-size: 0.85rem;
+  color: #1e40af;
+}
+.discussion-insight::before { content: '💡 '; }
+
+/* ===== DECISIONS ===== */
+.decision-list { list-style: none; }
+.decision-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+  box-shadow: var(--shadow-sm);
+}
+.decision-check {
+  width: 22px; height: 22px;
+  background: var(--green-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.decision-check svg { width: 12px; height: 12px; color: var(--green); }
+.decision-text { font-size: 0.9rem; line-height: 1.6; }
+.priority-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.priority-high { background: #fef2f2; color: #dc2626; }
+.priority-medium { background: var(--yellow-bg); color: #b45309; }
+.priority-low { background: var(--gray-100); color: var(--gray-600); }
+
+/* ===== ACTION TABLE ===== */
+.action-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.action-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  font-size: 0.88rem;
+}
+.action-table th {
+  background: var(--gray-50);
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--gray-600);
+  border-bottom: 2px solid var(--gray-200);
+  white-space: nowrap;
+}
+.action-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--gray-100);
+  vertical-align: top;
+}
+.action-table tr:last-child td { border-bottom: none; }
+.action-table tr:hover td { background: var(--gray-50); }
+.owner-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.owner-awoo { background: var(--accent-light); color: var(--accent); }
+.owner-client { background: #e0f2fe; color: #0369a1; }
+.owner-both { background: #faf5ff; color: #7c3aed; }
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  background: var(--yellow-bg);
+  color: #92400e;
+}
+.status-badge::before { content: '⏳'; font-size: 0.7rem; }
+
+/* ===== VALUE HIGHLIGHTS ===== */
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.value-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.value-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.value-card h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.value-card h4::before {
+  content: '';
+  width: 4px; height: 18px;
+  background: var(--accent);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.value-card p { font-size: 0.85rem; color: var(--gray-600); line-height: 1.7; }
+
+/* ===== FOOTER ===== */
+.report-footer {
+  margin-top: 40px;
+  padding: 32px 0;
+  border-top: 2px solid var(--gray-200);
+  text-align: center;
+}
+.footer-brand {
+  font-size: 0.8rem;
+  color: var(--gray-400);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.footer-contact { font-size: 0.85rem; color: var(--gray-600); }
+.footer-contact a { color: var(--accent); text-decoration: none; }
+.footer-contact a:hover { text-decoration: underline; }
+.footer-note {
+  margin-top: 16px;
+  font-size: 0.75rem;
+  color: var(--gray-400);
+}
+
+/* ===== COPY TOAST ===== */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--navy);
+  color: var(--white);
+  padding: 10px 24px;
+  border-radius: 24px;
+  font-size: 0.85rem;
+  z-index: 999;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 640px) {
+  .report-header h1 { font-size: 1.35rem; }
+  .header-meta { gap: 12px; }
+  .participant-groups { flex-direction: column; gap: 16px; }
+  .value-grid { grid-template-columns: 1fr; }
+  .action-table { font-size: 0.82rem; }
+  .action-table th, .action-table td { padding: 10px 12px; }
+}
+
+/* ===== PRINT ===== */
+@media print {
+  body { background: white; }
+  .toolbar { display: none; }
+  .toast { display: none; }
+  .discussion-body { max-height: none !important; }
+  .discussion-chevron { display: none; }
+  .discussion-body-inner { border-top: 1px solid #ddd; }
+  .report-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .report-header::after { display: none; }
+  .value-card:hover { transform: none; }
+  .section { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="report-header">
+  <div class="container">
+    <div class="header-brand">
+      <span class="dot"></span>
+      <span>Meeting Summary Report</span>
+    </div>
+    <h1 id="report-title"></h1>
+    <div class="header-meta" id="header-meta"></div>
+  </div>
+</header>
+
+<!-- TOOLBAR -->
+<nav class="toolbar">
+  <div class="container">
+    <div class="toolbar-inner">
+      <button class="toolbar-btn" onclick="scrollToSection('summary')">📌 摘要</button>
+      <button class="toolbar-btn" onclick="scrollToSection('discussions')">💬 討論</button>
+      <button class="toolbar-btn" onclick="scrollToSection('decisions')">✅ 決策</button>
+      <button class="toolbar-btn" onclick="scrollToSection('actions')">📋 待辦</button>
+      <button class="toolbar-btn" onclick="scrollToSection('value')">💎 價值</button>
+      <span class="toolbar-spacer"></span>
+      <button class="toolbar-btn" onclick="toggleAll()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        全展開
+      </button>
+      <button class="toolbar-btn" onclick="copyLink()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        複製連結
+      </button>
+      <button class="toolbar-btn" onclick="window.print()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        列印
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="container">
+
+  <!-- PARTICIPANTS -->
+  <div class="participants">
+    <h3>與會人員</h3>
+    <div class="participant-groups" id="participants"></div>
+  </div>
+
+  <!-- SUMMARY -->
+  <section class="section" id="summary">
+    <div class="section-title">
+      <span class="section-number">1</span>
+      會議重點摘要
+    </div>
+    <div class="summary-card" id="summary-text"></div>
+  </section>
+
+  <!-- DISCUSSION POINTS -->
+  <section class="section" id="discussions">
+    <div class="section-title">
+      <span class="section-number">2</span>
+      討論要點
+    </div>
+    <div id="discussion-list"></div>
+  </section>
+
+  <!-- DECISIONS -->
+  <section class="section" id="decisions">
+    <div class="section-title">
+      <span class="section-number">3</span>
+      達成共識
+    </div>
+    <ul class="decision-list" id="decision-list"></ul>
+  </section>
+
+  <!-- ACTION ITEMS -->
+  <section class="section" id="actions">
+    <div class="section-title">
+      <span class="section-number">4</span>
+      行動項目
+    </div>
+    <div class="action-table-wrapper">
+      <table class="action-table">
+        <thead>
+          <tr>
+            <th>任務</th>
+            <th>負責人</th>
+            <th>時程</th>
+            <th>狀態</th>
+          </tr>
+        </thead>
+        <tbody id="action-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- VALUE HIGHLIGHTS -->
+  <section class="section" id="value">
+    <div class="section-title">
+      <span class="section-number">5</span>
+      合作價值亮點
+    </div>
+    <div class="value-grid" id="value-grid"></div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="report-footer">
+  <div class="container">
+    <div class="footer-brand">Prepared by awoo 阿物科技</div>
+    <div class="footer-contact" id="footer-contact"></div>
+    <div class="footer-note">本報告僅供雙方內部參考使用</div>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="report-data.js"></script>
+<script>
+const D = REPORT_DATA;
+
+// Render header
+document.getElementById('report-title').textContent = D.meeting.title;
+document.getElementById('header-meta').innerHTML = `
+  <span class="header-meta-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    ${D.meeting.date}
+  </span>
+  <span class="header-meta-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    ${D.meeting.time}（${D.meeting.duration}）
+  </span>
+  <span class="header-meta-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    ${D.meeting.location}
+  </span>
+`;
+
+// Render participants
+const pGroups = D.meeting.participants;
+document.getElementById('participants').innerHTML = `
+  <div class="participant-group">
+    <div class="participant-group-label">awoo 阿物科技</div>
+    ${pGroups.awoo.map(p => `
+      <div class="participant-item">
+        <div class="participant-name">${p.name}</div>
+        <div class="participant-role">${p.role}</div>
+      </div>
+    `).join('')}
+  </div>
+  <div class="participant-group">
+    <div class="participant-group-label">天下雜誌</div>
+    ${pGroups.client.map(p => `
+      <div class="participant-item">
+        <div class="participant-name">${p.name}</div>
+        <div class="participant-role">${p.role}</div>
+      </div>
+    `).join('')}
+  </div>
+`;
+
+// Render summary
+document.getElementById('summary-text').textContent = D.summary;
+
+// Render discussion points
+document.getElementById('discussion-list').innerHTML = D.discussionPoints.map(dp => `
+  <div class="discussion-card" data-id="${dp.id}">
+    <div class="discussion-header" onclick="toggleCard(this)">
+      <span class="discussion-icon">${dp.icon}</span>
+      <span class="discussion-title">${dp.title}</span>
+      <svg class="discussion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="discussion-body">
+      <div class="discussion-body-inner">
+        <p>${dp.details}</p>
+        <div class="discussion-insight">${dp.insight}</div>
+      </div>
+    </div>
+  </div>
+`).join('');
+
+// Render decisions
+document.getElementById('decision-list').innerHTML = D.decisions.map(d => `
+  <li class="decision-item">
+    <div class="decision-check">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <div class="decision-text">
+      ${d.text}
+      <span class="priority-badge priority-${d.priority}">${d.priority === 'high' ? '重要' : d.priority === 'medium' ? '一般' : '備註'}</span>
+    </div>
+  </li>
+`).join('');
+
+// Render action items
+const catClass = { awoo: 'owner-awoo', client: 'owner-client', both: 'owner-both' };
+document.getElementById('action-tbody').innerHTML = D.actionItems.map(a => `
+  <tr>
+    <td>${a.task}</td>
+    <td><span class="owner-tag ${catClass[a.category]}">${a.owner}</span></td>
+    <td>${a.timeline}</td>
+    <td><span class="status-badge">${a.status}</span></td>
+  </tr>
+`).join('');
+
+// Render value highlights
+document.getElementById('value-grid').innerHTML = D.valueHighlights.map(v => `
+  <div class="value-card">
+    <h4>${v.title}</h4>
+    <p>${v.description}</p>
+  </div>
+`).join('');
+
+// Render footer
+document.getElementById('footer-contact').innerHTML = `
+  ${D.preparedBy.name} | ${D.preparedBy.title}<br>
+  <a href="mailto:${D.preparedBy.email}">${D.preparedBy.email}</a>
+`;
+
+// === Interactivity ===
+
+function toggleCard(header) {
+  const card = header.parentElement;
+  const body = card.querySelector('.discussion-body');
+  const inner = card.querySelector('.discussion-body-inner');
+  if (card.classList.contains('open')) {
+    body.style.maxHeight = '0';
+    card.classList.remove('open');
+  } else {
+    body.style.maxHeight = inner.scrollHeight + 'px';
+    card.classList.add('open');
+  }
+}
+
+let allOpen = false;
+function toggleAll() {
+  allOpen = !allOpen;
+  document.querySelectorAll('.discussion-card').forEach(card => {
+    const body = card.querySelector('.discussion-body');
+    const inner = card.querySelector('.discussion-body-inner');
+    if (allOpen) {
+      body.style.maxHeight = inner.scrollHeight + 'px';
+      card.classList.add('open');
+    } else {
+      body.style.maxHeight = '0';
+      card.classList.remove('open');
+    }
+  });
+}
+
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    const offset = 60;
+    const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    showToast('連結已複製到剪貼簿 ✓');
+  }).catch(() => {
+    showToast('請手動複製網址列的連結');
+  });
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// Active nav highlight
+const sections = ['summary', 'discussions', 'decisions', 'actions', 'value'];
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      document.querySelectorAll('.toolbar-btn').forEach(btn => btn.classList.remove('active'));
+      const idx = sections.indexOf(entry.target.id);
+      if (idx >= 0) {
+        document.querySelectorAll('.toolbar-btn')[idx].classList.add('active');
+      }
+    }
+  });
+}, { rootMargin: '-80px 0px -60% 0px' });
+sections.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
+</script>
+
+</body>
+</html>
